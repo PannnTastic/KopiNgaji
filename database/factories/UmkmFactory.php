@@ -16,12 +16,15 @@ class UmkmFactory extends Factory
      */
     public function definition(): array
     {
+        $feeType = fake()->randomElement(['percentage', 'flat']);
+
         return [
             'name' => fake()->company(),
             'description' => fake()->paragraph(),
             'owner_id' => \App\Models\User::factory(),
-            'platform_fee' => fake()->randomFloat(2, 1000, 10000),
-            'revenue_total' => fake()->randomFloat(2, 100000, 10000000),
+            'platform_fee_type' => $feeType,
+            'platform_fee_rate' => $feeType === 'percentage' ? fake()->randomFloat(2, 1, 15) : 0,
+            'platform_fee_flat' => $feeType === 'flat' ? fake()->randomFloat(2, 1000, 10000) : 0,
         ];
     }
 }

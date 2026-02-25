@@ -12,6 +12,14 @@ class Order extends Model
 
     protected $guarded = ['id'];
 
+    protected $casts = [
+        'total_price' => 'decimal:2',
+        'subtotal_amount' => 'decimal:2',
+        'discount_amount' => 'decimal:2',
+        'platform_fee_amount' => 'decimal:2',
+        'net_amount' => 'decimal:2',
+    ];
+
     public function buyer()
     {
         return $this->belongsTo(User::class, 'buyer_id');

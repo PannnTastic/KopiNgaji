@@ -40,6 +40,21 @@ class User extends Authenticatable
         return $this->hasMany(Withdrawal::class, 'owner_id');
     }
 
+    public function isOwner(): bool
+    {
+        return $this->role === 'OWNER';
+    }
+
+    public function isBuyer(): bool
+    {
+        return $this->role === 'BUYER';
+    }
+
+    public function isAdmin(): bool
+    {
+        return $this->role === 'ADMIN';
+    }
+
     /**
      * The attributes that should be hidden for serialization.
      *

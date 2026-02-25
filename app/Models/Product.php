@@ -12,6 +12,12 @@ class Product extends Model
 
     protected $guarded = ['id'];
 
+    protected $casts = [
+        'price' => 'decimal:2',
+        'cost_price' => 'decimal:2',
+        'discount' => 'decimal:2',
+    ];
+
     public function umkm()
     {
         return $this->belongsTo(Umkm::class);
@@ -20,5 +26,10 @@ class Product extends Model
     public function orderItems()
     {
         return $this->hasMany(OrderItem::class);
+    }
+
+    public function images()
+    {
+        return $this->hasMany(ProductImage::class);
     }
 }

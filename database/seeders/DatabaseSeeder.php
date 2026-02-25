@@ -13,8 +13,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
-
         // Create Admin
         User::factory()->create([
             'name' => 'Admin User',
@@ -36,6 +34,13 @@ class DatabaseSeeder extends Seeder
         $products = \App\Models\Product::factory(5)->create([
             'umkm_id' => $umkm->id,
         ]);
+
+        // Create product images (1-3 per product)
+        foreach ($products as $product) {
+            \App\Models\ProductImage::factory(fake()->numberBetween(1, 3))->create([
+                'product_id' => $product->id,
+            ]);
+        }
 
         // Create Buyer with Orders
         $buyer = User::factory()->create([

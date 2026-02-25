@@ -12,6 +12,11 @@ class Umkm extends Model
 
     protected $guarded = ['id'];
 
+    protected $casts = [
+        'platform_fee_rate' => 'decimal:2',
+        'platform_fee_flat' => 'decimal:2',
+    ];
+
     public function owner()
     {
         return $this->belongsTo(User::class, 'owner_id');
@@ -26,4 +31,5 @@ class Umkm extends Model
     {
         return $this->hasMany(Order::class);
     }
+
 }

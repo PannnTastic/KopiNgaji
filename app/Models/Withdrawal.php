@@ -12,6 +12,10 @@ class Withdrawal extends Model
 
     protected $guarded = ['id'];
 
+    protected $casts = [
+        'amount' => 'decimal:2',
+    ];
+
     public function owner()
     {
         return $this->belongsTo(User::class, 'owner_id');

@@ -16,9 +16,9 @@ return new class extends Migration
             $table->foreignId('umkm_id')->constrained('umkms')->cascadeOnDelete();
             $table->string('name');
             $table->text('description')->nullable();
-            $table->float('price')->default(0);
-            $table->float('cost_price')->default(0);
-            $table->float('discount')->default(0);
+            $table->decimal('price', 12, 2)->default(0);
+            $table->decimal('cost_price', 12, 2)->default(0);
+            $table->decimal('discount', 12, 2)->default(0);
             $table->integer('stock')->default(0);
             $table->string('image_url')->nullable();
             $table->boolean('is_preorder')->default(false);

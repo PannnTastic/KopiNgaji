@@ -17,7 +17,11 @@ return new class extends Migration
             $table->foreignId('umkm_id')->constrained('umkms')->cascadeOnDelete();
             $table->enum('status', ['PENDING', 'PAID', 'CANCELLED', 'COMPLETED'])->default('PENDING');
             $table->enum('payment_method', ['CASH', 'NON_CASH'])->default('CASH');
-            $table->float('total_price')->default(0);
+            $table->decimal('total_price', 12, 2)->default(0);
+            $table->decimal('subtotal_amount', 12, 2)->default(0);
+            $table->decimal('discount_amount', 12, 2)->default(0);
+            $table->decimal('platform_fee_amount', 12, 2)->default(0);
+            $table->decimal('net_amount', 12, 2)->default(0);
             $table->string('whatsapp')->nullable();
             $table->string('qr_code')->nullable();
             $table->boolean('is_scanned')->default(false);

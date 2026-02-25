@@ -16,8 +16,9 @@ return new class extends Migration
             $table->string('name');
             $table->text('description')->nullable();
             $table->foreignId('owner_id')->constrained('users')->cascadeOnDelete();
-            $table->float('platform_fee')->default(0);
-            $table->float('revenue_total')->default(0);
+            $table->enum('platform_fee_type', ['percentage', 'flat'])->default('percentage');
+            $table->decimal('platform_fee_rate', 5, 2)->default(0);
+            $table->decimal('platform_fee_flat', 12, 2)->default(0);
             $table->timestamps();
         });
     }
