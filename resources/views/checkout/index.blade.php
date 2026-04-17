@@ -70,10 +70,15 @@
                                 </div>
                             </label>
                             
-                            <label class="cursor-pointer">
-                                <input type="radio" name="payment_method" value="NON_CASH" class="peer sr-only">
-                                <div class="rounded-xl border-2 border-slate-200 p-4 peer-checked:border-indigo-600 peer-checked:bg-indigo-50 transition-all text-center">
-                                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6vAwQBTdaC7grL28G7kvTFbDYmMoN3HGlzA&s" alt="DOKU" class="h-6 mx-auto mb-2 grayscale peer-checked:grayscale-0 align-middle inline-block">
+                            <label class="cursor-not-allowed relative" title="Pembayaran online sementara dinonaktifkan">
+                                <input type="radio" name="payment_method" value="NON_CASH" class="peer sr-only" disabled>
+                                <div class="rounded-xl border-2 border-slate-200 p-4 opacity-60 transition-all text-center select-none">
+                                    <div class="absolute top-2 right-2">
+                                        <span class="inline-block px-2 py-0.5 rounded-full text-[10px] font-bold uppercase bg-amber-100 text-amber-700 border border-amber-200">
+                                            Segera Dirilis
+                                        </span>
+                                    </div>
+                                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6vAwQBTdaC7grL28G7kvTFbDYmMoN3HGlzA&s" alt="DOKU" class="h-6 mx-auto mb-2 grayscale align-middle inline-block">
                                     <div class="font-bold text-slate-800">Non-Tunai (DokuPay)</div>
                                     <div class="text-xs text-slate-500 mt-1">Pembayaran aman dengan Virtual Account, QRIS, e-Wallet, dll.</div>
                                 </div>

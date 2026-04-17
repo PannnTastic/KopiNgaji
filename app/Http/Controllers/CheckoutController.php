@@ -50,7 +50,7 @@ class CheckoutController extends Controller
     public function store(Request $request, DokuService $dokuService)
     {
         $request->validate([
-            'payment_method' => 'required|in:CASH,NON_CASH',
+            'payment_method' => 'required|in:CASH', // NON_CASH sementara dinonaktifkan, kode DOKU tetap dipertahankan di bawah
             'delivery_method' => 'required|in:AMBIL_LOKASI,KIRIM_ALAMAT',
             'shipping_address' => 'required_if:delivery_method,KIRIM_ALAMAT|nullable|string',
             'shipping_zone_id' => 'required_if:delivery_method,KIRIM_ALAMAT|nullable|exists:shipping_zones,id',
